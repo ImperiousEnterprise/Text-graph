@@ -1,0 +1,35 @@
+@(user: Models.AppUser, groups: Seq[Models.Group])(implicit messages: Messages)
+
+@main(Messages("home.chats"), Some(user), Some(groups)) {
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-3 col-sm-3">
+                <div class="list-group chatList">
+                    @groups.map{ group =>
+                        <a href="#" class="list-group-item list-group-item-action" value="@group.room_id">@group.name</a>
+                    }
+                </div>
+            </div>
+            <div id="sigmaSpace" class="col-lg-8 col-md-8 col-sm-8">
+                <div id="sigmaContainer"></div>
+            </div>
+            <div class="col-lg-1 col-md-1 col-sm-1">
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Dropdown
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                        <button class="dropdown-item" value="today" type="button">Today</button>
+                        <button class="dropdown-item" value="yesterday" type="button">Yesterday</button>
+                        <button class="dropdown-item" value="thismonth" type="button">This Month</button>
+                        <button class="dropdown-item" value="lastmonth" type="button">Last Month</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="@routes.Assets.at("javascripts/sigma.min.js")" type="text/javascript"></script>
+    <script src="@routes.Assets.at("javascripts/sigma.parsers.json.min.js")" type="text/javascript"></script>
+    <script src="@routes.Assets.at("javascripts/main.js")" type="text/javascript"></script>
+}

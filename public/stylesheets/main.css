@@ -1,0 +1,10 @@
+.chatList {
+    height:500px;
+    overflow-y: scroll;
+}
+
+#sigmaContainer {
+    max-width: 100%;
+    height: 100%;
+    margin: auto;
+}
